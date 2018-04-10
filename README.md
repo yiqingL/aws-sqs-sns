@@ -1,0 +1,1 @@
+The SQS and SNS are setup accoriding to here: https://docs.aws.amazon.com/sns/latest/dg/SendMessageToSQS.html
