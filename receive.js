@@ -13,22 +13,22 @@ var receiveMessageParams = {
 sqs.receiveMessage(receiveMessageParams, receiveMessageCallback);
 
 function receiveMessageCallback(err, data) {
-console.log("received message");
-console.log(data);
+    console.log("received message");
+    console.log(data);
 
-if (data.Messages && data.Messages.length > 0) {
+    if (data.Messages && data.Messages.length > 0) {
 
-    console.log("do something with the message here...");
+        console.log("do something with the message here...");
 
-    // Delete the message when we've successfully processed it
-    // only delete first message
-    var deleteMessageParams = {
-        QueueUrl: queueUrl,
-        ReceiptHandle: data.Messages[0].ReceiptHandle
-    };
+        // Delete the message when we've successfully processed it
+        // only delete first message
+        var deleteMessageParams = {
+            QueueUrl: queueUrl,
+            ReceiptHandle: data.Messages[0].ReceiptHandle
+        };
 
-    sqs.deleteMessage(deleteMessageParams, deleteMessageCallback);
-}
+        sqs.deleteMessage(deleteMessageParams, deleteMessageCallback);
+    }
 }
 
 function deleteMessageCallback(err, data) {
